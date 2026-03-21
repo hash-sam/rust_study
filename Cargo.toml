@@ -1,6 +1,52 @@
-[package]
-name = "rust_study"
+[workspace]
+members = [
+    "src",
+    "demos/shared",
+    "demos/http-api",
+    "demos/mysql-crud",
+    "demos/redis-cache",
+    "demos/kafka-messaging",
+    "demos/concurrent-tasks",
+    "demos/integrated-service",
+]
+resolver = "2"
+
+[workspace.package]
 version = "0.1.0"
 edition = "2024"
+authors = ["rust_study"]
 
-[dependencies]
+[workspace.dependencies]
+# 异步运行时
+tokio = { version = "1.40", features = ["full"] }
+# HTTP 框架
+axum = { version = "0.8", features = ["macros"] }
+tower = "0.5"
+tower-http = { version = "0.6", features = ["trace", "cors", "limit"] }
+# 序列化
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+# 数据库
+sqlx = { version = "0.8", features = ["runtime-tokio", "mysql", "chrono", "uuid"] }
+# Redis
+redis = { version = "0.26", features = ["tokio-comp", "connection-manager", "aio"] }
+# Kafka
+rdkafka = { version = "0.36", features = ["tokio"] }
+# 异步工具
+async-trait = "0.1"
+futures = "0.3"
+# 并行计算
+rayon = "1.10"
+# 随机数
+rand = "0.8"
+# 工具库
+anyhow = "1.0"
+thiserror = "2.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+config = "0.14"
+uuid = { version = "1.0", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+# 测试
+tokio-test = "0.4"
+axum-test = "16"

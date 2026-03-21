@@ -1,0 +1,19 @@
+[package]
+name = "shared"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+# 工作区依赖
+anyhow.workspace = true
+thiserror.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+config.workspace = true
+chrono.workspace = true
+uuid.workspace = true
+tokio.workspace = true
+sqlx.workspace = true
+redis.workspace = true
